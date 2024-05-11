@@ -1,46 +1,67 @@
 
-# Detecção de Objetos em Vídeo
+# Object Detection using YOLO-NAS-L
 
-Este projeto implementa um sistema de detecção de objetos em vídeos utilizando a rede neural YOLO-NAS-L e OpenCV.
+This project demonstrates how to perform object detection using the YOLO-NAS-L architecture. It allows detecting persons in images, videos, or streaming sources.
 
-## Funcionalidades
+## Installation
 
-- Detecta objetos em vídeos.
-- Suporta diferentes tipos de entrada: imagem, vídeo e link de streaming.
-- Salva um novo vídeo com as previsões desenhadas.
-- Registra todas as previsões em um arquivo de log.
+1. Clone this repository to your local machine:
 
-## Instalação
+```bash
+git clone https://github.com/yourusername/object-detection.git
+```
 
-1. Clone o repositório:
+2. Install the required dependencies:
 
-    ```
-    git clone https://github.com/seu_usuario/nome_do_repositorio.git
-    ```
+```bash
+pip install -r requirements.txt
+```
 
-2. Instale as dependências:
+## Usage
 
-    ```
-    pip install -r requirements.txt
-    ```
+### Using the Object Detector class
 
-## Utilização
+```python
+import cv2
+import numpy as np
+from object_detector import ObjectDetector
+from super_gradients.common.object_names import Models
+from super_gradients.training import models
 
-1. Execute o script `object_detection.py` passando o caminho do vídeo de entrada como argumento:
+# Load the YOLO-NAS-L model
+model = models.get(Models.YOLO_NAS_L, pretrained_weights="coco")
 
-    ```
-    python object_detection.py /caminho/do/video.mp4
-    ```
+# Instantiate the ObjectDetector with the loaded model
+detector = ObjectDetector(model)
 
-2. O vídeo resultante com as previsões será salvo no diretório de trabalho como `output_video.mp4`.
-3. O arquivo de log com todas as previsões será salvo como `predictions_log.txt`.
+# Path to the input video
+input_video_path = "input_video.mp4"
 
-## Requisitos
+# Path to save the output video with predictions
+output_video_path = "output_video.mp4"
 
-- Python 3
-- OpenCV
-- Super Gradients
+# Number of frames to process (optional)
+max_frames = 500
 
-## Licença
+# Confidence threshold for object detection (optional)
+confidence_threshold = 0.2
 
-Este projeto é distribuído sob a licença MIT. Consulte o arquivo `LICENSE` para mais detalhes.
+# Call the detect_objects method to process the video and save the output video with predictions
+detector.detect_objects(input_video_path, output_video_path, max_frames=max_frames, confidence_threshold=confidence_threshold)
+```
+
+### Supported Input Types
+
+The Object Detector class supports the following input types:
+
+- Video files: `.mp4`, `.avi`, etc.
+- Image files: `.jpg`, `.jpeg`, `.png`, `.bmp`
+- Streaming sources: HTTP/HTTPS links to video streams
+
+### Output
+
+The `detect_objects` method saves the output video with bounding boxes and confidence scores drawn around detected persons. Additionally, it prints the path to the saved video.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
