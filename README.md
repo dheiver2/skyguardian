@@ -1,67 +1,56 @@
 
-# Object Detection using YOLO-NAS-L
+# Detecção de Objetos em Vídeos com YOLO-NAS-L
 
-This project demonstrates how to perform object detection using the YOLO-NAS-L architecture. It allows detecting persons in images, videos, or streaming sources.
+Este é um projeto de detecção de objetos em vídeos usando o modelo YOLO-NAS-L. O YOLO-NAS-L é um modelo de detecção de objetos eficiente e preciso, adequado para aplicações em tempo real.
 
-## Installation
+## Como Usar
 
-1. Clone this repository to your local machine:
+### Requisitos
+
+- Python 3
+- OpenCV (cv2)
+- NumPy
+
+### Instalação
+
+1. Clone este repositório:
+
+    ```bash
+    git clone https://github.com/seu-usuario/detecao-objetos-video-yolo-nas-l.git
+    cd detecao-objetos-video-yolo-nas-l
+    ```
+
+2. Instale as dependências:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Uso
+
+Para executar a detecção de objetos em um vídeo, execute o seguinte comando:
 
 ```bash
-git clone https://github.com/yourusername/object-detection.git
+python detect_objects.py --input /caminho/para/video.mp4 --output /caminho/para/saida.mp4 --filter classe
 ```
 
-2. Install the required dependencies:
+Argumentos:
+- `--input`: Caminho para o vídeo de entrada.
+- `--output`: Caminho para o vídeo de saída (opcional). Se não especificado, a detecção será exibida em tempo real.
+- `--filter`: Classe de objeto para filtrar as detecções (opcional).
+
+### Exemplo
 
 ```bash
-pip install -r requirements.txt
+python detect_objects.py --input /caminho/para/video.mp4 --output /caminho/para/saida.mp4 --filter person
 ```
 
-## Usage
+Este comando detectará apenas pessoas no vídeo de entrada e salvará o vídeo de saída com as detecções destacadas.
 
-### Using the Object Detector class
+## Contribuindo
 
-```python
-import cv2
-import numpy as np
-from object_detector import ObjectDetector
-from super_gradients.common.object_names import Models
-from super_gradients.training import models
+Contribuições são bem-vindas! Por favor, abra um problema ou envie uma solicitação de pull se desejar contribuir com melhorias ou correções.
 
-# Load the YOLO-NAS-L model
-model = models.get(Models.YOLO_NAS_L, pretrained_weights="coco")
+## Licença
 
-# Instantiate the ObjectDetector with the loaded model
-detector = ObjectDetector(model)
-
-# Path to the input video
-input_video_path = "input_video.mp4"
-
-# Path to save the output video with predictions
-output_video_path = "output_video.mp4"
-
-# Number of frames to process (optional)
-max_frames = 500
-
-# Confidence threshold for object detection (optional)
-confidence_threshold = 0.2
-
-# Call the detect_objects method to process the video and save the output video with predictions
-detector.detect_objects(input_video_path, output_video_path, max_frames=max_frames, confidence_threshold=confidence_threshold)
-```
-
-### Supported Input Types
-
-The Object Detector class supports the following input types:
-
-- Video files: `.mp4`, `.avi`, etc.
-- Image files: `.jpg`, `.jpeg`, `.png`, `.bmp`
-- Streaming sources: HTTP/HTTPS links to video streams
-
-### Output
-
-The `detect_objects` method saves the output video with bounding boxes and confidence scores drawn around detected persons. Additionally, it prints the path to the saved video.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Este projeto está licenciado sob a [Licença MIT](LICENSE).
