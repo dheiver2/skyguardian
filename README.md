@@ -1,43 +1,46 @@
 
-# Detecção de Pessoas em Vídeo
+# Detecção de Objetos em Vídeo
 
-Este é um script Python que usa o modelo YOLO-NAS-L para detectar pessoas em um vídeo e desenha caixas delimitadoras ao redor delas.
+Este projeto implementa um sistema de detecção de objetos em vídeos utilizando a rede neural YOLO-NAS-L e OpenCV.
+
+## Funcionalidades
+
+- Detecta objetos em vídeos.
+- Suporta diferentes tipos de entrada: imagem, vídeo e link de streaming.
+- Salva um novo vídeo com as previsões desenhadas.
+- Registra todas as previsões em um arquivo de log.
+
+## Instalação
+
+1. Clone o repositório:
+
+    ```
+    git clone https://github.com/seu_usuario/nome_do_repositorio.git
+    ```
+
+2. Instale as dependências:
+
+    ```
+    pip install -r requirements.txt
+    ```
+
+## Utilização
+
+1. Execute o script `object_detection.py` passando o caminho do vídeo de entrada como argumento:
+
+    ```
+    python object_detection.py /caminho/do/video.mp4
+    ```
+
+2. O vídeo resultante com as previsões será salvo no diretório de trabalho como `output_video.mp4`.
+3. O arquivo de log com todas as previsões será salvo como `predictions_log.txt`.
 
 ## Requisitos
 
 - Python 3
-- OpenCV (cv2)
-- Super Gradients (super_gradients)
-- NumPy (numpy)
-
-## Instalação
-
-Você pode instalar as dependências usando pip:
-
-```
-pip install opencv-python super_gradients numpy
-```
-
-## Uso
-
-1. Baixe o vídeo de entrada e salve-o em seu computador.
-2. Altere o caminho do vídeo de entrada no código para o caminho correto em sua máquina.
-3. Execute o script.
-
-O vídeo resultante com as detecções será salvo no mesmo diretório do script com o nome `output_video.mp4`.
-
-## Personalização
-
-Você pode personalizar a detecção ajustando o limite de confiança para detecções de pessoas. Isso pode ser feito alterando o valor da variável `confidence_threshold` no código.
-
-## Créditos
-
-Este script utiliza o modelo YOLO-NAS-L fornecido pela biblioteca Super Gradients.
+- OpenCV
+- Super Gradients
 
 ## Licença
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
-
-```
-
-Você pode salvar este conteúdo em um arquivo chamado `README.md` no mesmo diretório do seu código. Certifique-se de ajustar os detalhes conforme necessário para o seu projeto.
+Este projeto é distribuído sob a licença MIT. Consulte o arquivo `LICENSE` para mais detalhes.
