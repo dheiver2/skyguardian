@@ -35,17 +35,31 @@ python detect_objects.py --input /caminho/para/video.mp4 --output /caminho/para/
 ```
 
 Argumentos:
-- `--input`: Caminho para o vídeo de entrada.
+- `--input`: Caminho para o vídeo de entrada. Pode ser um arquivo local ou uma URL de vídeo.
 - `--output`: Caminho para o vídeo de saída (opcional). Se não especificado, a detecção será exibida em tempo real.
 - `--filter`: Classe de objeto para filtrar as detecções (opcional).
 
-### Exemplo
+### Exemplos
 
-```bash
-python detect_objects.py --input /caminho/para/video.mp4 --output /caminho/para/saida.mp4 --filter person
-```
+1. Executar detecção em um arquivo de vídeo local:
 
-Este comando detectará apenas pessoas no vídeo de entrada e salvará o vídeo de saída com as detecções destacadas.
+    ```bash
+    python detect_objects.py --input video.mp4 --output saida.mp4 --filter person
+    ```
+
+2. Executar detecção em um vídeo online (URL):
+
+    ```bash
+    python detect_objects.py --input https://example.com/video.mp4 --output saida.mp4 --filter car
+    ```
+
+3. Executar detecção em tempo real sem salvar o vídeo de saída:
+
+    ```bash
+    python detect_objects.py --input 0 --filter dog
+    ```
+
+Este comando detectará apenas cachorros em uma entrada de vídeo da webcam e exibirá a detecção em tempo real.
 
 ## Contribuindo
 
