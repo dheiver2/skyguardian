@@ -1,8 +1,4 @@
 
-# Object Detector
-
-O Object Detector é uma ferramenta poderosa que utiliza o modelo YOLO-NAS-L para detectar objetos em imagens ou vídeos. Este detector suporta várias fontes de entrada, incluindo webcam, arquivos de vídeo locais e URLs de vídeo online. Ele fornece uma maneira simples e eficaz de identificar e rastrear objetos em tempo real ou em vídeos gravados.
-
 ## Instalação
 
 Antes de usar o Object Detector, é necessário instalar algumas dependências. Certifique-se de ter o Python instalado em seu sistema e execute o seguinte comando para instalar as bibliotecas necessárias:
@@ -10,6 +6,8 @@ Antes de usar o Object Detector, é necessário instalar algumas dependências. 
 ```bash
 pip install opencv-python numpy urllib3 super_gradients
 ```
+
+Além disso, certifique-se de ter o Microsoft Visual C++ 14.0 ou superior instalado em seu sistema, pois algumas das dependências podem exigir isso para a instalação bem-sucedida.
 
 ## Uso
 
@@ -51,4 +49,4 @@ Este comando iniciará o detector de objetos usando um arquivo de vídeo local c
 
 ## Créditos
 
-Este projeto foi desenvolvido por Dr Dheiver Francisco Santos como parte de um projeto de detecção de objetos.
+Este projeto foi desenvolvido por Dr. Dheiver Francisco Santos como parte de um projeto de detecção de objetos.
