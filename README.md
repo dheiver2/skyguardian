@@ -1,6 +1,4 @@
-Claro! Abaixo está um exemplo de como você pode criar um arquivo README em formato Markdown para descrever seu código e seu uso:
 
-```markdown
 # Detecção de Pessoas em Vídeo usando YOLO-NAS-L
 
 Este é um script Python que usa o modelo YOLO-NAS-L para detectar pessoas em um vídeo e desenha caixas delimitadoras ao redor delas.
