@@ -1,70 +1,68 @@
 
-# Detecção de Objetos em Vídeos com YOLO-NAS-L
 
-Este é um projeto de detecção de objetos em vídeos usando o modelo YOLO-NAS-L. O YOLO-NAS-L é um modelo de detecção de objetos eficiente e preciso, adequado para aplicações em tempo real.
+# Object Detector
 
-## Como Usar
+Este é um detector de objetos que utiliza o modelo YOLO-NAS-L para detectar objetos em imagens ou vídeos. Ele suporta várias fontes de entrada, incluindo webcam, arquivos de vídeo locais e URLs de vídeo online.
 
-### Requisitos
+## Instalação
 
-- Python 3
-- OpenCV (cv2)
-- NumPy
-
-### Instalação
-
-1. Clone este repositório:
-
-    ```bash
-    git clone https://github.com/seu-usuario/detecao-objetos-video-yolo-nas-l.git
-    cd detecao-objetos-video-yolo-nas-l
-    ```
-
-2. Instale as dependências:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-### Uso
-
-Para executar a detecção de objetos em um vídeo, execute o seguinte comando:
+Para executar este detector de objetos, é necessário ter o Python e algumas bibliotecas instaladas. Você pode instalar as dependências executando o seguinte comando:
 
 ```bash
-python detect_objects.py --input /caminho/para/video.mp4 --output /caminho/para/saida.mp4 --filter classe
+pip install opencv-python numpy urllib3 super_gradients
 ```
 
-Argumentos:
-- `--input`: Caminho para o vídeo de entrada. Pode ser um arquivo local ou uma URL de vídeo.
-- `--output`: Caminho para o vídeo de saída (opcional). Se não especificado, a detecção será exibida em tempo real.
-- `--filter`: Classe de objeto para filtrar as detecções (opcional).
+## Uso
 
-### Exemplos
+Você pode usar este detector de objetos executando o script `object_detector.py`. Aqui estão alguns exemplos de como usar o detector com diferentes fontes de entrada:
 
-1. Executar detecção em um arquivo de vídeo local:
+### Exemplo 1: Usando uma webcam
 
-    ```bash
-    python detect_objects.py --input video.mp4 --output saida.mp4 --filter person
-    ```
+```bash
+python object_detector.py --source webcam
+```
 
-2. Executar detecção em um vídeo online (URL):
+Isso iniciará o detector de objetos usando a webcam do seu computador como fonte de entrada.
 
-    ```bash
-    python detect_objects.py --input https://example.com/video.mp4 --output saida.mp4 --filter car
-    ```
+### Exemplo 2: Usando um arquivo de vídeo local
 
-3. Executar detecção em tempo real sem salvar o vídeo de saída:
+```bash
+python object_detector.py --source video --input_path /path/to/your/video.mp4
+```
 
-    ```bash
-    python detect_objects.py --input 0 --filter dog
-    ```
+Isso iniciará o detector de objetos usando um arquivo de vídeo local como fonte de entrada.
 
-Este comando detectará apenas cachorros em uma entrada de vídeo da webcam e exibirá a detecção em tempo real.
+### Exemplo 3: Usando uma URL de vídeo online
 
-## Contribuindo
+```bash
+python object_detector.py --source video --input_url https://example.com/your/video.mp4
+```
 
-Contribuições são bem-vindas! Por favor, abra um problema ou envie uma solicitação de pull se desejar contribuir com melhorias ou correções.
+Isso iniciará o detector de objetos usando uma URL de vídeo online como fonte de entrada.
 
-## Licença
+### Exemplo 4: Salvando o vídeo de saída
 
-Este projeto está licenciado sob a [Licença MIT](LICENSE).
+```bash
+python object_detector.py --source webcam --output_path output.mp4
+```
+
+Isso iniciará o detector de objetos usando a webcam e salvará o vídeo de saída como `output.mp4`.
+
+### Exemplo 5: Definindo um limite de confiança
+
+```bash
+python object_detector.py --source video --input_path /path/to/your/video.mp4 --confidence_threshold 0.5
+```
+
+Isso iniciará o detector de objetos usando um arquivo de vídeo local como fonte de entrada e definirá o limite de confiança para 0.5.
+
+### Exemplo 6: Filtrando objetos por label
+
+```bash
+python object_detector.py --source video --input_path /path/to/your/video.mp4 --filter_label person
+```
+
+Isso iniciará o detector de objetos usando um arquivo de vídeo local como fonte de entrada e filtrará apenas os objetos da classe "person".
+
+Você pode combinar várias opções para personalizar o comportamento do detector de objetos de acordo com suas necessidades.
+
