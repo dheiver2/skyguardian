@@ -1,5 +1,5 @@
 
-# Detecção de Pessoas em Vídeo usando YOLO-NAS-L
+# Detecção de Pessoas em Vídeo
 
 Este é um script Python que usa o modelo YOLO-NAS-L para detectar pessoas em um vídeo e desenha caixas delimitadoras ao redor delas.
 
