@@ -1,12 +1,11 @@
 
-
 # Object Detector
 
-Este é um detector de objetos que utiliza o modelo YOLO-NAS-L para detectar objetos em imagens ou vídeos. Ele suporta várias fontes de entrada, incluindo webcam, arquivos de vídeo locais e URLs de vídeo online.
+O Object Detector é uma ferramenta poderosa que utiliza o modelo YOLO-NAS-L para detectar objetos em imagens ou vídeos. Este detector suporta várias fontes de entrada, incluindo webcam, arquivos de vídeo locais e URLs de vídeo online. Ele fornece uma maneira simples e eficaz de identificar e rastrear objetos em tempo real ou em vídeos gravados.
 
 ## Instalação
 
-Para executar este detector de objetos, é necessário ter o Python e algumas bibliotecas instaladas. Você pode instalar as dependências executando o seguinte comando:
+Antes de usar o Object Detector, é necessário instalar algumas dependências. Certifique-se de ter o Python instalado em seu sistema e execute o seguinte comando para instalar as bibliotecas necessárias:
 
 ```bash
 pip install opencv-python numpy urllib3 super_gradients
@@ -14,55 +13,42 @@ pip install opencv-python numpy urllib3 super_gradients
 
 ## Uso
 
-Você pode usar este detector de objetos executando o script `object_detector.py`. Aqui estão alguns exemplos de como usar o detector com diferentes fontes de entrada:
+O Object Detector pode ser usado de várias maneiras, dependendo da fonte de entrada e das configurações desejadas. Aqui estão alguns exemplos de como usar o detector:
 
-### Exemplo 1: Usando uma webcam
+### Utilizando uma Webcam
 
 ```bash
 python object_detector.py --source webcam
 ```
 
-Isso iniciará o detector de objetos usando a webcam do seu computador como fonte de entrada.
+Este comando iniciará o detector de objetos usando a webcam do seu computador como fonte de entrada. Você verá uma janela mostrando a saída do detector em tempo real.
 
-### Exemplo 2: Usando um arquivo de vídeo local
+### Utilizando um Arquivo de Vídeo Local
 
 ```bash
 python object_detector.py --source video --input_path /path/to/your/video.mp4
 ```
 
-Isso iniciará o detector de objetos usando um arquivo de vídeo local como fonte de entrada.
+Este comando iniciará o detector de objetos usando um arquivo de vídeo local como fonte de entrada. Ele detectará objetos no vídeo e exibirá a saída ou salvará o vídeo processado, se desejado.
 
-### Exemplo 3: Usando uma URL de vídeo online
+### Utilizando uma URL de Vídeo Online
 
 ```bash
 python object_detector.py --source video --input_url https://example.com/your/video.mp4
 ```
 
-Isso iniciará o detector de objetos usando uma URL de vídeo online como fonte de entrada.
+Este comando iniciará o detector de objetos usando uma URL de vídeo online como fonte de entrada. Ele baixará o vídeo da URL especificada e executará a detecção de objetos.
 
-### Exemplo 4: Salvando o vídeo de saída
+### Personalizando as Configurações
 
-```bash
-python object_detector.py --source webcam --output_path output.mp4
-```
-
-Isso iniciará o detector de objetos usando a webcam e salvará o vídeo de saída como `output.mp4`.
-
-### Exemplo 5: Definindo um limite de confiança
+Você pode personalizar várias configurações do detector de objetos, incluindo o limite de confiança para detecção de objetos e a filtragem por label. Aqui está um exemplo:
 
 ```bash
-python object_detector.py --source video --input_path /path/to/your/video.mp4 --confidence_threshold 0.5
+python object_detector.py --source video --input_path /path/to/your/video.mp4 --confidence_threshold 0.5 --filter_label person
 ```
 
-Isso iniciará o detector de objetos usando um arquivo de vídeo local como fonte de entrada e definirá o limite de confiança para 0.5.
+Este comando iniciará o detector de objetos usando um arquivo de vídeo local como fonte de entrada. Ele definirá o limite de confiança para 0.5 e filtrará apenas os objetos da classe "person".
 
-### Exemplo 6: Filtrando objetos por label
+## Créditos
 
-```bash
-python object_detector.py --source video --input_path /path/to/your/video.mp4 --filter_label person
-```
-
-Isso iniciará o detector de objetos usando um arquivo de vídeo local como fonte de entrada e filtrará apenas os objetos da classe "person".
-
-Você pode combinar várias opções para personalizar o comportamento do detector de objetos de acordo com suas necessidades.
-
+Este projeto foi desenvolvido por Dr Dheiver Francisco Santos como parte de um projeto de detecção de objetos.
